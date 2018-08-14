@@ -8,7 +8,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
   
   def setup
-    @base_title = "Ruby on Rails Tutorial Sample App"
+    @base_title = "I Love Andi"
   end
   
   test "should get home" do

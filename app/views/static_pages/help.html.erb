@@ -1,10 +1,11 @@
 <% provide(:title, "Help") %>
 
 <h1>Help</h1>
-  <p>
-  Get help on the Ruby on Rails tutorial at the
-  <a href="http://www.railstutorial.org/help">Rails Tutorial help page</a>.
-  To get help on this sample app, see the
-  <a href="http://www.railstutorial.org/book"><em>Ruby on Rails Tutorial</em>
-  book</a>.
+  Make an account <%= link_to "here", signup_path %>. <br />
+  After filling out the form, you should receive an email shortly with a link
+  to verify your account. After your account is verified, you will be able to
+  find and follow other users, as well as make your own posts! <br />
+  Posts can be made from the <%= link_to "home page", root_path %>, and other
+  users can be found either by searching for them, or from the 
+  <%= link_to "main list of all users", users_path %>.
 </p>
