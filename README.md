@@ -1,15 +1,11 @@
-# Ruby on Rails Tutorial sample application
+# i-love-andi.com
 
-This is the sample application for
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
+This is the source code for the website [i-love-andi.com](i-love-andi.com)
 
 ## License
 
-All source code in the [Ruby on Rails Tutorial](http://www.railstutorial.org/)
-is available jointly under the MIT License and the Beerware License. See
-[LICENSE.md](LICENSE.md) for details.
+All source code is available jointly under the MIT License and the Beerware 
+License.
 
 ## Getting started
 
@@ -36,5 +32,3 @@ If the test suite passes, you'll be ready to run the app in a local server:
 ```
 $ rails server
 ```
-
-For more information, see the[*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
