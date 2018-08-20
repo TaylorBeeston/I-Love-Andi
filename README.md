@@ -4,8 +4,7 @@ This is the source code for the website [i-love-andi.com](i-love-andi.com)
 
 ## License
 
-All source code is available jointly under the MIT License and the Beerware 
-License.
+All source code is available under the MIT License
 
 ## Getting started
 
