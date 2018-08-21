@@ -4,7 +4,8 @@ This is the source code for the website [i-love-andi.com](i-love-andi.com)
 
 ## License
 
-All source code is available under the MIT License
+All source code is available under the MIT License, see [LICENSE.md](LICENSE.md)
+for more information
 
 ## Getting started
 
