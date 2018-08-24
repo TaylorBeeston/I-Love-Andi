@@ -18,6 +18,8 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validate  :picture_size
+  mount_uploader :picture, ProfilePictureUploader
   
   class << self
     # Returns the hash digest of the given string.
@@ -112,5 +114,14 @@ class User < ApplicationRecord
     def create_activation_digest
       self.activation_token =  User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+    
+    private
+      
+      # Validates the size of an uploaded picture.
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less  than 5MB")
+      end
     end
 end

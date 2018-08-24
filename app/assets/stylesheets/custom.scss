@@ -4,6 +4,8 @@
 /* mixins, variables, etc */
 
 $gray-medium-light: #eaeaea;
+$offblack: #191919;
+$red-danger: #c9302c;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -17,6 +19,7 @@ $grid-float-breakpoint: 992px;
 
 body {
   padding-top: 60px;
+  background: $gray-dark;
 }
 
 section {
@@ -31,7 +34,23 @@ textarea {
   text-align: center;
   h1 {
     margin-bottom: 10px;
+    color: lightgray;
   }
+}
+
+.jumbotron {
+  background: $offblack;
+}
+.profile_picture {
+  float: left;
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.btn-danger {
+  background: $red-danger;
 }
 
 /* typography */
@@ -45,6 +64,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: lightgray;
 }
 
 h2 {
@@ -56,9 +76,18 @@ h2 {
   color: $gray-light;
 }
 
+h3 {
+  color: $gray-medium-light;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  color: lightgray;
+}
+
+span {
+  color: lightgray;
 }
 
 /* header */
@@ -95,9 +124,9 @@ footer {
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
   a {
-    color: $gray;
+    color: $gray-light;
     &:hover {
-      color: $gray-darker;
+      color: $gray-medium-light;
     }
   }
   
@@ -144,12 +173,7 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
+.profile_picture_edit {
   margin-top: 15px;
 }
 
@@ -161,14 +185,14 @@ aside {
     float: left;
     padding: 0 10px;
     border-left: 1px solid $gray-lighter;
-    color: gray;
+    color: $gray-medium-light;
     &:first-child {
       padding-left: 0;
       border: 0;
     }
     &:hover {
       text-decoration: none;
-      color: blue;
+      color: gray;
     }
   }
   strong {
@@ -179,8 +203,10 @@ aside {
 .user_avatars {
   overflow: auto;
   margin-top: 10px;
-  .gravatar {
+  .profile_picture {
     margin: 1px 1px;
+    height: 30px;
+    width: 30px;
   }
   a {
     padding: 0;
@@ -198,6 +224,8 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+  background: $gray-dark;
+  color: lightgray;
 }
 
 input {
@@ -219,6 +247,11 @@ input {
   }
 }
 
+.form-control {
+  background: $gray-dark;
+  color: lightgray;
+}
+
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
@@ -233,6 +266,10 @@ input {
   margin-left: 0;
 }
 
+.follow_form {
+  display: inline-block;
+  padding-top: 5px;
+}
 /* miscellaneous */
 
 .debug_dump {
@@ -243,11 +280,49 @@ input {
   @include box_sizing;
 }
 
+.pagination {
+  background: $gray-dark;
+  border: 1px solid $gray-medium-light;
+  text-align: center;
+  padding: 1em;
+  cursor: default;
+  a, span {
+    padding: 0.2em 0.3em;
+  }
+  .disabled{
+    color: $offblack;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: lightgray;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(white, .8) 1px 1px 1px;
+  }
+  a {
+    text-decoration: none;
+    color: lightgray;
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
 /* Users index */
 
 .users {
   list-style: none;
   margin: 0;
+  .profile_picture {
+    width: 50px;
+    height: 50px;
+  }
   li {
     overflow: auto;
     padding: 10px 0;
@@ -268,6 +343,9 @@ input {
   .user {
     margin-top: 5em;
     padding-top: 0;
+    .follow_form {
+      padding: 5px;
+    }
   }
   
   .content {
@@ -285,8 +363,10 @@ input {
     margin-left: 60px;
   }
   
-  .gravatar {
+  .profile_picture {
     float: left;
+    width: 50px;
+    height: 50px;
     margin-right: 10px;
     margin-top: 5px;
   }
