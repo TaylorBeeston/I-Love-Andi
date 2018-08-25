@@ -228,6 +228,10 @@ input, textarea, select, .uneditable-input {
   color: lightgray;
 }
 
+label {
+  color: lightgray
+}
+
 input {
   height: auto !important;
 }
@@ -270,6 +274,7 @@ input {
   display: inline-block;
   padding-top: 5px;
 }
+
 /* miscellaneous */
 
 .debug_dump {
