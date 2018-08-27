@@ -33,10 +33,18 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: 'delete', count: 0
   end
   
-  test 'cannot view unactivated users' do
+  test "cannot view unactivated users" do
     log_in_as @admin
     get user_path(@unactivated)
     follow_redirect!
     assert_template root_path
+  end
+  
+  test "search for a user" do
+    log_in_as @admin
+    get users_path, params: { susers: "Michael" }
+    assert_template 'users/index'
+    assert_select 'a[href=?]', user_path(@admin), text: "Michael Example"
+    assert_select 'a[href=?]', user_path(@non_admin), count: 0
   end
 end

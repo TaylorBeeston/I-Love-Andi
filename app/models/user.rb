@@ -20,6 +20,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validate  :picture_size
   mount_uploader :picture, ProfilePictureUploader
+  scope :search, lambda { |term| where('activated = ? AND name LIKE ?', true,
+                          "%#{term}%") }
   
   class << self
     # Returns the hash digest of the given string.

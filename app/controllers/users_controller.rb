@@ -10,8 +10,7 @@ class UsersController < ApplicationController
   
   def index
     if params[:susers]
-      @users = User.where('activated = ? AND name LIKE ?', true,
-                          "%#{params[:susers]}%").paginate(page: params[:page])
+      @users = User.search(params[:susers]).paginate(page: params[:page])
     else
       @users = User.where(activated: true).paginate(page: params[:page])
     end
