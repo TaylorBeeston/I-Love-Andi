@@ -2,9 +2,12 @@
   <%= link_to profile_picture_for(micropost.user), micropost.user %>
   <span class="user">
     <%= link_to micropost.user.name, micropost.user %>
-    <%= render 'users/follow_form' if logged_in? && 
-                                      !current_user?(micropost.user) %>
-  </span>
+    <div class="pull-right">
+    <%= if logged_in? && !current_user?(micropost.user) 
+          render(partial: 'users/follow_form', locals: { u: micropost.user }) 
+        end %>
+    </div>
+   </span>
   <span class="content">
     <%= micropost.content %>
     <%= image_tag micropost.picture.url if micropost.picture? %>

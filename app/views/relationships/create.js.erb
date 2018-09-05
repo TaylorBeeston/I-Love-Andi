@@ -1,2 +1,19 @@
-$(".follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
-$("#followers").html('<%= @user.followers.count %>');
+title = $('title')[0].innerHTML
+
+if (title === 'I Love Andi') {
+  for (let i of $("a[href$='/users/<%= @user.id %>']").siblings("div")) {
+    i.innerHTML = "<%= j(render(partial: 'users/unfollow', 
+                                       locals: { u: @user })) %>"
+  }
+  $("#following").html('<%= current_user.following.count %>');
+} else if (title === '<%= @user.name %> | I Love Andi') {
+  $(".follow_form").html("<%= j(render(partial: 'users/unfollow',
+                                       locals: { u: @user })) %>");
+  $("#followers").html('<%= @user.followers.count %>');
+} else {
+  places = $("a[href$='/users/<%= @user.id %>']").siblings("div").find("div")
+  for (let i of places) {
+    i.innerHTML = "<%= j(render(partial: 'users/unfollow', 
+                                       locals: { u: @user })) %>"
+  }
+}

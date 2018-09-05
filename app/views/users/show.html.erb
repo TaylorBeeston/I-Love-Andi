@@ -6,7 +6,9 @@
         <%= profile_picture_for @user %>
         <%= @user.name %>
         <br />
-        <%= render 'users/follow_form' if logged_in? && !current_user?(@user) %>
+        <%= if logged_in? && !current_user?(@user) 
+          render(partial: 'users/follow_form', locals: { u: @user }) 
+            end %>
       </h1>
     </section>
     <section class="stats">

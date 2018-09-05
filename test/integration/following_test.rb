@@ -14,6 +14,7 @@ class FollowingTest < ActionDispatch::IntegrationTest
     @user.following.each do |user|
       assert_select "a[href=?]", user_path(user)
     end
+    assert_select ".follow_form", count: @user.following.count
   end
   
   test "followers page" do
@@ -23,6 +24,12 @@ class FollowingTest < ActionDispatch::IntegrationTest
     @user.followers.each do |user|
       assert_select "a[href=?]", user_path(user)
     end
+    assert_select ".follow_form", count: @user.followers.count
+  end
+
+  test "user index page should have follow forms" do
+    get users_path
+    assert_select ".follow_form"
   end
   
   test "should follow a user the standard way" do
