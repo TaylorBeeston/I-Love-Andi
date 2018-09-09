@@ -3,6 +3,7 @@ class UsersController < ApplicationController
                                         :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
+  include UsersHelper
   
   def new
     @user = User.new
@@ -24,6 +25,11 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    unless @user.picture?
+      File.open("app/assets/images/" + random_default_image) do |f|
+        @user.picture  = f
+      end 
+    end
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account"

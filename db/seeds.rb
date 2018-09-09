@@ -5,18 +5,21 @@ User.create!(name:  "Example User",
              password_confirmation: "foobar",
              admin: true,
              activated: true,
-             activated_at: Time.zone.now)
+             activated_at: Time.zone.now,
+             picture: File.open("app/assets/images/1.jpg"))
              
 99.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
+  picture = File.open("app/assets/images/" + Random.new.rand(1..6).to_s + '.jpg')
   User.create!(name:  name,
                email: email,
                password:              password,
                password_confirmation: password,
                activated: true,
-               activated_at: Time.zone.now)
+               activated_at: Time.zone.now,
+               picture: picture)
 end
 
 # Microposts
